@@ -1,33 +1,31 @@
 <template>
     <header>
         <nav>
-            <div class="container-fluid">
-                <ul class="d-flex ">
-                    <li class="align-item-center">
-                        <router-link to="/">Home</router-link>
-                    </li>
-                    <li>
-                        <router-link to="/new-trip">New Trip</router-link>
-                    </li>
-                </ul>
-            </div>
+            <ul class="d-flex align-items-center">
+                <li class="me-5">
+                    <router-link to="/">Home</router-link>
+                </li>
+                <li>
+                    <router-link to="/new-trip">New Trip</router-link>
+                </li>
+            </ul>
         </nav>
     </header>
 </template>
 
 <script>
-    export default {
-        name: 'HeaderComponent',
-    }
+export default {
+    name: 'HeaderComponent',
+}
 </script>
 
 <style lang="scss" scoped>
-header{
+ul {
     background-color: darkgray;
     height: 50px;
 }
-li{
+
+li {
     list-style: none;
 }
-
 </style>
