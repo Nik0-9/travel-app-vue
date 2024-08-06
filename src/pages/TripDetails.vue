@@ -32,34 +32,39 @@
   import axios from 'axios';
   
   export default {
-    name: 'TripDetails',
-    data() {
-      return {
-        trip: null,
-      };
+  name: 'TripDetails',
+  data() {
+    return {
+      trip: null,
+      newDayDate: '',
+    };
+  },
+  async created() {
+    await this.fetchTrip();
+  },
+  methods: {
+    async fetchTrip() {
+      const tripId = this.$route.params.id;
+      try {
+        const response = await axios.get(`${store.apiBaseUrl}trips/${tripId}`);
+        this.trip = response.data;
+      } catch (error) {
+        console.error('Error fetching trip:', error);
+      }
     },
-    created() {
-      this.fetchTrip();
-    },
-    methods: {
-      fetchTrip() {
-        this.trip = store.trips.find(trip => trip.id === parseInt(this.$route.params.id));
-      },
-
-        async addDay() {
-            try {
-                const tripId = this.$route.params.id;
-                console.log(tripId);
-                const response = await axios.post(`${store.apiBaseUrl}trips/${tripId}/days`, {
-                    date: this.newDayDate,
-                });
-                this.trip.days.push(response.data);
-                this.newDayDate = ''; // Reset form input
-            } catch (error) {
-                console.error('Error adding day:', error);
-            }
-        }
-    },
+    async addDay() {
+      try {
+        const tripId = this.$route.params.id;
+        const response = await axios.post(`${store.apiBaseUrl}trips/${tripId}/days`, {
+          day: this.newDayDate,
+        });
+        this.trip.days.push(response.data);
+        this.newDayDate = ''; // Reset form input
+      } catch (error) {
+        console.error('Error adding day:', error);
+      }
+    }
+  },
 }
 </script>
 
