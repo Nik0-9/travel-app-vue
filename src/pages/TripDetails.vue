@@ -9,7 +9,9 @@
         <h3>Giorni del Viaggio</h3>
         <ul>
           <li v-for="day in trip.days" :key="day.id">
-            {{ day.day }}
+            <router-link :to="{ name: 'DayDetails', params: { tripId: trip.id, dayId: day.id } }">
+              {{ formatDay(day.day) }}
+            </router-link>
           </li>
         </ul>
       </div>
@@ -63,6 +65,11 @@
       } catch (error) {
         console.error('Error adding day:', error);
       }
+    },
+    formatDay(dateString) {
+      const date = new Date(dateString);
+      const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+      return date.toLocaleDateString('it-IT', options);
     }
   },
 }
