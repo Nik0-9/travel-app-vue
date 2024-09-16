@@ -13,6 +13,7 @@
           {{ stop.address }}<br />
           {{ stop.description }}
         </li>
+        <li v-if="!stops.length">Nessuna fermata presente</li>
       </ul>
 
       <!-- Form per aggiungere una nuova fermata -->
