@@ -163,6 +163,115 @@ export default {
 };
 </script>
 
+<style scoped>
+/* Stile principale del contenitore */
+div {
+  margin: 20px;
+  font-family: Arial, sans-serif;
+}
 
+/* Titoli */
+h1, h2, h3 {
+  color: #2c3e50;
+  margin-bottom: 15px;
+}
 
-<style scoped></style>
+h1 {
+  font-size: 2.5em;
+}
+
+h2 {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+h3 {
+  font-size: 1.5em;
+  margin-top: 25px;
+  margin-bottom: 15px;
+}
+
+/* Lista delle fermate */
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  background-color: #f7f7f7;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+li strong {
+  font-size: 1.2em;
+  color: #34495e;
+}
+
+li p {
+  margin: 5px 0;
+}
+
+/* Form per aggiungere una nuova fermata */
+form {
+  background-color: #ecf0f1;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+form div {
+  margin-bottom: 15px;
+}
+
+form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+input[type="text"], input[type="decimal"], input[type="date"], textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1em;
+}
+
+input[type="text"]:focus, input[type="decimal"]:focus, input[type="date"]:focus, textarea:focus {
+  border-color: #3498db;
+  outline: none;
+}
+
+textarea {
+  height: 100px;
+  resize: vertical;
+}
+
+/* Bottone di submit */
+button[type="submit"] {
+  background-color: #3498db;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.1em;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #2980b9;
+}
+
+/* Suggerimenti per l'indirizzo */
+datalist {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  max-height: 200px;
+  overflow-y: auto;
+}
+</style>
